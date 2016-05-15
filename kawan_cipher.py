@@ -1,11 +1,35 @@
-letras = {"A":"N","B":"O","C":"P","D":"Q","E":"R","F":"S",
-"G":"T","H":"U","I":"V","J":"W","K":"X","L":"Y","M":"Z"}
+letras = {
+  "A":"N",
+  "B":"O",
+  "C":"P",
+  "D":"Q",
+  "E":"R",
+  "F":"S",
+  "G":"T",
+  "H":"U",
+  "I":"V",
+  "J":"W",
+  "K":"X",
+  "L":"Y",
+  "M":"Z",
+  "N":"A",
+  "O":"B",
+  "P":"C",
+  "Q":"D",
+  "R":"E",
+  "S":"F",
+  "T":"G",
+  "U":"H",
+  "V":"I",
+  "W":"J",
+  "X":"K",
+  "Y":"L",
+  "Z":"M",
+}
 
 class KawanCipher:
 
-  def __int__():
-
-  def cifrar(mensagem):
+  def cifrar(self, mensagem):
     texto_cifrado = ""
     for letra in mensagem:
       if letra == " ":
@@ -14,19 +38,28 @@ class KawanCipher:
         texto_cifrado += letras[letra.upper()]
     return texto_cifrado
       
-  def decifrar(mensagem):
+  def decifrar(self, mensagem):
     texto_decifrado = ""
     for letra in mensagem:
       if letra == " ":
         texto_decifrado += " "
       else:
         for chave,valor in letras.items():
-          if letra == valor:
+          if letra.upper() == valor:
             texto_decifrado += chave
     return texto_decifrado
 
-cipher = KawanCipher
-print(texto_cifrado = cipher.cifrar(input("\nDigite a mensagem que você deseja cifrar: ")))
-print(texto_decifrado = cipher.decifrar(input("\nDigite a mensagem que você deseja decifrar: ")))
+cipher = KawanCipher()
+option = int(input("\nEscolha uma opção: \n1 - Cifrar mensagem \n2 - Decifrar mensagem \n3 - Sair \n"))
 
-    
+while(option < 3):
+  if option == 1:
+    texto_cifrado = cipher.cifrar(input("\nDigite a mensagem que você deseja cifrar: "))
+    print(texto_cifrado)
+  elif(option == 2):
+    texto_decifrado = cipher.decifrar(input("\nDigite a mensagem que você deseja decifrar: "))
+    print(texto_decifrado)
+  else:
+    exit()
+  option = int(input("\nEscolha uma opção: \n1 - Cifrar mensagem \n2 - Decifrar mensagem \n3 - Sair \n" ))
+
