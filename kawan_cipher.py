@@ -50,7 +50,7 @@ class KawanCipher:
             texto_decifrado += chave
             achei = True
       if not achei:
-        texto_decifrado += letra
+        texto_decifrado += letra.upper()
     return texto_decifrado
 
 
