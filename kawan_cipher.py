@@ -32,22 +32,27 @@ class KawanCipher:
   def cifrar(self, mensagem):
     texto_cifrado = ""
     for letra in mensagem:
-      if letra == " ":
-        texto_cifrado += " "
-      else:
-        texto_cifrado += letras[letra.upper()]
+      achei = False
+      for chave, valor in letras.items():
+        if chave == letra.upper(): 
+          texto_cifrado += letras[letra.upper()]
+          achei = True
+      if not achei:
+        texto_cifrado += letra.upper()
     return texto_cifrado
       
   def decifrar(self, mensagem):
     texto_decifrado = ""
     for letra in mensagem:
-      if letra == " ":
-        texto_decifrado += " "
-      else:
-        for chave,valor in letras.items():
+      achei = False
+      for chave,valor in letras.items():
           if letra.upper() == valor:
             texto_decifrado += chave
+            achei = True
+      if not achei:
+        texto_decifrado += letra
     return texto_decifrado
+
 
 cipher = KawanCipher()
 option = int(input("\nEscolha uma opção: \n1 - Cifrar mensagem \n2 - Decifrar mensagem \n3 - Sair \n"))
